@@ -5,5 +5,3 @@ def bubble_sort(to_sort):
                 to_sort[i], to_sort[i+1] = to_sort[i+1], to_sort[i]
 
     return to_sort
-
-print(bubble_sort([3,7,4,1,2]))
