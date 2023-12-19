@@ -13,5 +13,3 @@ def binary_search(target, search_arr):
             return mid
         
     return None
-
-    
