@@ -1,3 +1,4 @@
+# A simple singlely linked list
 class Node:
     def __init__(self, val):
         self.val = val
@@ -17,11 +18,13 @@ class LinkedList:
         else:
             self.length = 0
         
+
     def add(self, node):
         #add a new node to the front of the linked list
         node.next = self.head
         self.head = node
         self.length += 1
+
         
     def append(self, node):
         #adds a new node to the end of the linked list
@@ -33,20 +36,23 @@ class LinkedList:
         else:
             self.head = node
         self.length += 1
-    
+
+
     def clear(self):
         #clears linked list
         self.head = None
         self.length = 0
         
+
     def empty(self):
+        #return if the list is empty
         return self.length == 0
     
+
     def get_at(self, index):
         #get a value at a certain index
         if (index >= self.length or index < 0) and self.length != 0:
             raise Exception("index out of bounds")
-
         count = 0
         current = self.head
         while count < index:
@@ -55,8 +61,9 @@ class LinkedList:
         
         return current
     
+
     def insert_at(self, index, node):
-        #get a value at a certain index
+        #insert a value at a certain index
         if (index >= self.length+1 or index < 0) and self.length != 0:
             raise Exception("index out of bounds")
         
@@ -77,8 +84,9 @@ class LinkedList:
             node.next = current
             self.length += 1
             
+
     def set_at(self, index, value):
-        #get a value at a certain index
+        #set a value at a certain index
         if (index >= self.length or index < 0) and self.length != 0:
             raise Exception("index out of bounds")
 
@@ -90,7 +98,9 @@ class LinkedList:
         
         current.val = value
         
+
     def index_of(self, value):
+        #returns the index of the fisrt instance of a value in the list
         current = self.head
         count = 0
         while current:
@@ -101,8 +111,9 @@ class LinkedList:
             
         return None
     
+
     def remove_at(self, index):
-        #get a value at a certain index
+        #removes a value at a sertain index
         if (index >= self.length or index < 0) and self.length != 0:
             raise Exception("index out of bounds")
         if not self.head:
@@ -121,6 +132,7 @@ class LinkedList:
             
     
     def remove(self, value):
+        #removes the first occurence of the list
         current = self.head
         while current.next:
             if current.next.val == value:
@@ -129,10 +141,14 @@ class LinkedList:
                 break
             current = current.next
         
+
     def __len__(self):
+        #returns the length of the list
         return self.length
     
+
     def __repr__(self):
+        #Prints out a repersentation of the list
         nodes = []
         current = self.head
         while current and hasattr(current, "val"):
