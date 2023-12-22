@@ -1,4 +1,4 @@
-#Simple doublely linked list. Mainly implemented for stacks and queues so not as many methods like in the singlely linked list
+#Simple doublely linked list.
 
 class Node:
     def __init__(self, val) -> None:
