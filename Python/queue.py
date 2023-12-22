@@ -33,7 +33,7 @@ class Queue:
         return None
     
 
-    def  peek(self):
+    def peek(self):
         if self.head:
             return self.head.val
         return None
