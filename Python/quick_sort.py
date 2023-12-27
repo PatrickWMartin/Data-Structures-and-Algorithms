@@ -17,9 +17,3 @@ def qs(arr, low, high):
 
 def quicksort(arr):
     qs(arr, 0, len(arr)-1)
-
-
-data = [2,5,3,1,6,5,4]
-print(data)
-quicksort(data)
-print(data)
