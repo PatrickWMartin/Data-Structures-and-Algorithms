@@ -27,6 +27,26 @@ class BSTNode:
             return
         self.right = BSTNode(val)
 
+    
+    def delete(self, val):
+        if self.val is None:
+            return None
+        if val < self.val:
+            if self.left:
+                self.left = self.left.delete(val)
+            return self
+        if val > self.val:
+            if self.right:
+                self.right = self.right.delete(val)
+            return self
+        if self.right is None:
+            return self.left
+        if self.left is None:
+            return self.right
+        min_larger_node = self.right.get_min()
+        self.right = self.right.delete(min_larger_node.val)
+        return self
+
 
     def get_min(self):
         curr = self
@@ -40,4 +60,31 @@ class BSTNode:
         while curr.right:
             curr = curr.right
         return curr.val
+    
+    def pre_order_traverse(self, path=[]):
+        path.append(self.val)
+        if self.left:
+            self.left.pre_order_traverse()
+        if self.right:
+            self.right.pre_order_traverse()
+        return path
+
+
+    def post_order_traverse(self, path=[]):
+        if self.left:
+            self.left.post_order_traverse()
+        if self.right:
+            self.right.post_order_traverse()
+        path.append(self.val)
+        return path
+
+    def in_order_traverse(self, path=[]):
+        if self.left:
+            self.left.in_order_traverse()
+        path.append(self.val)
+        if self.right:
+            self.right.in_order_traverse()
+        return path
+
+
 
