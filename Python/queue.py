@@ -38,6 +38,10 @@ class Queue:
             return self.head.val
         return None
 
+    
+    def __len__(self):
+        return self.length
+
 
     def __repr__(self) -> str:
         nodes = []

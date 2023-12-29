@@ -4,6 +4,7 @@ class BSTNode:
         self.left = None
         self.right = None
 
+
     def insert(self, val):
         new_node = BSTNode(val)
 
@@ -61,6 +62,7 @@ class BSTNode:
             curr = curr.right
         return curr.val
     
+
     def pre_order_traverse(self, path=None):
         if path is None:
             path = []
@@ -84,6 +86,7 @@ class BSTNode:
         path.append(self.val)
         return path
 
+
     def in_order_traverse(self, path=None):
         if path is None:
             path = []
@@ -93,8 +96,21 @@ class BSTNode:
         if self.right:
             self.right.in_order_traverse(path)
         return path
+
+
+    def breadth_first_search(self):
+        #Using a list as a queue for simplicity 
+        search_queue = [self]
+
+        while search_queue:
+            search = search_queue.pop(0)
+            if search.left:
+                search_queue.append(search.left)
+            if search.right:
+                search_queue.append(search.right)
+            print(search.val)
     
-    
+
 def build_tree_from_ordered_list(ordered_list):
     
     if len(ordered_list) <1:
