@@ -61,30 +61,47 @@ class BSTNode:
             curr = curr.right
         return curr.val
     
-    def pre_order_traverse(self, path=[]):
+    def pre_order_traverse(self, path=None):
+        if path is None:
+            path = []
         path.append(self.val)
         if self.left:
-            self.left.pre_order_traverse()
+            self.left.pre_order_traverse(path)
         if self.right:
-            self.right.pre_order_traverse()
+            self.right.pre_order_traverse(path)
         return path
 
 
-    def post_order_traverse(self, path=[]):
+    def post_order_traverse(self, path=None):
+        
+        if path is None:
+            path = []   
         if self.left:
-            self.left.post_order_traverse()
+            self.left.post_order_traverse(path)
         if self.right:
-            self.right.post_order_traverse()
+            self.right.post_order_traverse(path)
+            
         path.append(self.val)
         return path
 
-    def in_order_traverse(self, path=[]):
+    def in_order_traverse(self, path=None):
+        if path is None:
+            path = []
         if self.left:
-            self.left.in_order_traverse()
+            self.left.in_order_traverse(path)
         path.append(self.val)
         if self.right:
-            self.right.in_order_traverse()
+            self.right.in_order_traverse(path)
         return path
+    
+    
+    def balance(self):
+        order = self.in_order_traverse()
+        mid = len(order)//2
+        new_tree = BSTNode(order[mid])
+        for i in order:
+            if i != order[mid]:
+                new_tree.insert(i)
 
-
+        return new_tree
 
