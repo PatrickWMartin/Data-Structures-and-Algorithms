@@ -95,13 +95,15 @@ class BSTNode:
         return path
     
     
-    def balance(self):
-        order = self.in_order_traverse()
-        mid = len(order)//2
-        new_tree = BSTNode(order[mid])
-        for i in order:
-            if i != order[mid]:
-                new_tree.insert(i)
-
-        return new_tree
+def build_tree_from_ordered_list(ordered_list):
+    
+    if len(ordered_list) <1:
+        return None
+    if len(ordered_list) == 1:
+        return BSTNode(ordered_list[0])
+    mid = len(ordered_list)//2
+    root = BSTNode(ordered_list[mid])
+    root.left = build_tree_from_ordered_list(ordered_list[:mid])
+    root.right = build_tree_from_ordered_list(ordered_list[mid+1:])
+    return root
 
