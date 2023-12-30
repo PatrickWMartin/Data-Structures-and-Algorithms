@@ -85,3 +85,46 @@ class RBTree:
             parent.left = new_node
         else:
             parent.right = new_node
+
+        self.fix_up(new_node)
+
+    def fix_up(self, node):
+
+        if node.parent is None:
+            return  # return if the root node
+
+        while node.parent.red:
+            if node.parent == node.parent.parent.right:  # if parent is a right child
+                uncle = node.parent.parent.left
+
+                if uncle.red:  # if the uncle is reversed
+                    uncle.red = False
+                    node.parent.red = False
+                    node.parent.parent.red = True
+                    node = node.parent.parent
+                else:
+                    if node == node.parent.left:
+                        node = node.parent
+                        self.rotate_right(node)
+
+                    node.parent.red = False
+                    node.parent.parent.red = True
+                    self.rotate_left(node.parent.parent)
+            else:
+                uncle = node.parent.parent.right
+
+                if uncle.red:  # if the uncle is reversed
+                    uncle.red = False
+                    node.parent.red = False
+                    node.parent.parent.red = True
+                    node = node.parent.parent
+                else:
+                    if node == node.parent.right:
+                        node = node.parent
+                        self.rotate_left(node)
+
+                    node.parent.red = False
+                    node.parent.parent.red = True
+                    self.rotate_right(node.parent.parent)
+
+        self.root.red = False

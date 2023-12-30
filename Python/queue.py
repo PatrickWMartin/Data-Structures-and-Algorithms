@@ -9,7 +9,6 @@ class Queue:
         self.head = None
         self.tail = None
         self.length = 0
-    
 
     def enqueue(self, val):
         new_node = Node(val)
@@ -20,28 +19,24 @@ class Queue:
         else:
             self.head = new_node
             self.tail = new_node
-        self.length +=1
-
+        self.length += 1
 
     def dequeue(self):
-        
+
         head = self.head
         if self.head:
             self.head = self.head.next
             self.length -= 1
-            return head.val 
+            return head.val
         return None
-    
 
     def peek(self):
         if self.head:
             return self.head.val
         return None
 
-    
     def __len__(self):
         return self.length
-
 
     def __repr__(self) -> str:
         nodes = []
