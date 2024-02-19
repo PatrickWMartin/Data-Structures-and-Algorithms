@@ -10,12 +10,14 @@ Let's take a concrete example: summing all the numbers from 5 down to 1. We can 
 
 Here's how it looks in code:
 
-```python
-def sum(n):
-    if n == 1:
+```go
+func sum(num int) int{
+    if n == 1{
         return 1
-    else:
+    } else{
         return n + sum(n-1)
+    }
+}
 ```
 
 A recursive function typically consists of two parts: the base case and the recursive case. The base case is the simplest subproblem that we can solve outright, serving as the termination point to prevent endless recursion. Without a proper base case, recursive functions could potentially run indefinitely, leading to program crashes. Our example above establishes the base case when the value of n is equal to 1.
