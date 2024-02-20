@@ -11,7 +11,7 @@ Let's take a concrete example: summing all the numbers from 5 down to 1. We can 
 Here's how it looks in code:
 
 ```java
-public static void sum(int n):
+public static int sum(int n):
     if (n == 1){
         return 1
     } else{
