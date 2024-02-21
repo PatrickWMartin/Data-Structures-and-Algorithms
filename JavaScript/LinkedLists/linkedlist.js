@@ -22,6 +22,13 @@ class LinkedList{
     }
 
     /**
+     * Remove the value from the front of the list
+     */
+    remove(){
+        this.head = this.head.next;
+    }
+
+    /**
     * Print out what the current structure of the list looks like
     */
     printList(){
@@ -40,4 +47,9 @@ const list = new LinkedList();
 list.add(1);
 list.add(2);
 list.add(3);
+list.add(4);
+list.add(5);
+list.printList();
+list.remove();
+list.add(6);
 list.printList();
