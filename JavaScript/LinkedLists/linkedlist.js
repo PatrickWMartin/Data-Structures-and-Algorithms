@@ -39,12 +39,10 @@ class LinkedList{
      */
     insertAt(data, index){
         const newNode = new Node(data); 
-
-        if (this.head == null)
-            return;
-       
-        //if somehting wants to be added to index 0 just call add
-        if (index == 0){
+               
+        // if somehting wants to be added to index 0 just call add
+        // or the list is empty
+        if (index === 0 || this.head === null){
             this.add(data);
             return;
         }
@@ -52,8 +50,8 @@ class LinkedList{
         let current = this.head;
         let i = 0;
 
-        while(current != null){
-            if(i == index-1){
+        while(current !== null){
+            if(i === index-1){
                 newNode.next = current.next;
                 current.next = newNode;
                 break; 
@@ -61,6 +59,33 @@ class LinkedList{
             current = current.next;
             i++;
         }
+    }
+   
+    /**
+     * Remove a value from any position in the list
+     * @param {number} index The index to insert the value at 
+     */
+
+    removeAt(index){
+        if(this.head === null)
+            return;
+
+        if (index === 0){
+            this.remove();
+            return;
+        }
+        
+        let current = this.head;
+        let i = 0;
+        while(current !== null){
+            if(i === index-1){
+                current.next = current.next.next;
+                break; 
+            }
+            current = current.next;
+            i++;
+        }
+
     }
 
 
@@ -100,4 +125,7 @@ console.log('Add some more values');
 list.add(6);
 list.add(7);
 list.add(8);
+list.printList();
+console.log('remove last element');
+list.removeAt(4);
 list.printList();
