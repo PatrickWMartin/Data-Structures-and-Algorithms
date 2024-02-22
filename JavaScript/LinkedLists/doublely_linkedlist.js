@@ -21,11 +21,36 @@ class DoubleyLinkedList{
         this.head = newNode;
     }
 
-    remove(data){
+    remove(){
         this.head = this.head.next;
         this.head.prev = null;
     }
 
+    insertAt(data, index){
+        const newNode = new Node(data); 
+               
+        if (index === 0 || this.head === null){
+            this.add(data);
+            return;
+        }
+
+        let current = this.head;
+        let i = 0;
+
+        while(current !== null){
+            if(i === index-1){
+                newNode.next = current.next;
+                current.next.prev = newNode;
+                
+                newNode.prev = current
+                current.next = newNode;
+                break; 
+            }
+            current = current.next;
+            i++;
+        }
+    }
+    
     /**
     * Print out what the current structure of the list looks like
     */
