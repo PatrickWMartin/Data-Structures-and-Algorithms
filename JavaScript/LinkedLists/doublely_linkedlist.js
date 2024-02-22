@@ -21,6 +21,11 @@ class DoubleyLinkedList{
         this.head = newNode;
     }
 
+    remove(data){
+        this.head = this.head.next;
+        this.head.prev = null;
+    }
+
     /**
     * Print out what the current structure of the list looks like
     */
