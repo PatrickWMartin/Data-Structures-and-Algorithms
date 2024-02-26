@@ -102,30 +102,3 @@ export class LinkedList{
     }
 
 }
-
-
-const list = new LinkedList();
-console.log('New Linked List');
-list.printList();
-console.log('Add some values');
-list.add(1);
-list.add(2);
-list.add(4);
-list.add(5);
-list.printList();
-console.log('Insert 3 at index 2');
-list.insertAt(3,2);
-list.printList();
-console.log('remove some values');
-list.remove();
-list.remove();
-list.remove();
-list.printList();
-console.log('Add some more values');
-list.add(6);
-list.add(7);
-list.add(8);
-list.printList();
-console.log('remove last element');
-list.removeAt(4);
-list.printList();
