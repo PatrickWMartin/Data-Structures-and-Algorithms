@@ -16,7 +16,7 @@ class CircularLinkedList{
     }
 
     add(data){
-        const newNode = newNode(data);
+        const newNode = new Node(data);
         
         if (this.head === null){ 
             this.head = newNode;
@@ -29,6 +29,33 @@ class CircularLinkedList{
         this.length++;
     }
 
+    remove(){
+        this.tail.next = this.head.next;
+        this.head = this.head.next;
+    }
+
+    printList(){
+        let current = this.head;
+        while (current !== this.tail){
+            process.stdout.write(`${current.data} -> `);
+            current = current.next;
+        }
+        process.stdout.write('NULL\n');
+    }
 
 
 }
+
+const list = new CircularLinkedList();
+console.log('New Linked List');
+list.printList();
+console.log('Add some values');
+list.add(1);
+list.add(2);
+list.add(4);
+list.add(5);
+list.printList();
+console.log('remove some values');
+list.remove();
+list.remove();
+list.printList();
