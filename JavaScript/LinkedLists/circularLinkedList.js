@@ -32,13 +32,16 @@ class CircularLinkedList{
     remove(){
         this.tail.next = this.head.next;
         this.head = this.head.next;
+        this.length--;
     }
 
     printList(){
         let current = this.head;
-        while (current !== this.tail){
+        let i = 0;
+        while (i < this.length){
             process.stdout.write(`${current.data} -> `);
             current = current.next;
+            i++;
         }
         process.stdout.write('NULL\n');
     }
@@ -56,6 +59,7 @@ list.add(4);
 list.add(5);
 list.printList();
 console.log('remove some values');
+list.remove();
 list.remove();
 list.remove();
 list.printList();
