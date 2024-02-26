@@ -29,6 +29,9 @@ export class LinkedList{
         // In javascript the garabage collector will come by and get rid of an object when it is no longer accessible or 
         // usable somehow aka it is no longer reachable. So once we change the head of the list to the next node in the list
         // The previous head is no longer reachable and will be dealt with in garbage collection. 
+        if (this.head === null)
+            return;
+
         const value = this.head.data;
         this.head = this.head.next;
         return value;
