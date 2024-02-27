@@ -5,7 +5,7 @@ class Node{
     }
 }
 
-class LinkedListTail{
+export class LinkedListTail{
     constructor(){
         this.head = null;
         this.tail = null;
