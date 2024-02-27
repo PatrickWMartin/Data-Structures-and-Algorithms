@@ -34,17 +34,3 @@ export class LinkedListTail{
         process.stdout.write('NULL\n');
     }
 }
-
-const list = new LinkedListTail();
-console.log('New Linked List');
-list.printList();
-console.log('Add some values');
-list.add(1);
-list.add(2);
-list.add(4);
-list.add(5);
-list.printList();
-console.log('remove some values');
-list.remove();
-list.remove();
-list.printList();
