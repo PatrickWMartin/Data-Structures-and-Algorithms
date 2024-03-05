@@ -1,6 +1,6 @@
 import {LinkedListTail} from '../LinkedLists/LinkedListTail.mjs';
 
-class Queue{
+export class Queue{
     constructor(){
         this.values = new LinkedListTail();
     }
