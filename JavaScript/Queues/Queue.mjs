@@ -12,12 +12,12 @@ export class Queue{
     }
     dequeue(){
         if (this.length > 0){
-            this.values.remove();
             this.length--;
+            return this.values.remove();
         }
     }
     peek(){
-        return this.values.tail.data;
+        return this.values.head.data;
     }
     printList(){
         this.values.printList();

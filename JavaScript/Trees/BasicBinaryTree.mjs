@@ -24,28 +24,35 @@ class BasicBinaryTree{
         const nodeQueue = new Queue();
         nodeQueue.enqueue(this.root);
         while (nodeQueue.length > 0) {
-            let curr = nodeQueue.peek();
-
+            const curr = nodeQueue.peek();
+            console.log(curr.data);
+            console.log(nodeQueue);
             if (curr.left === null){
                 curr.left = newNode;
                 return;
             }
 
-            nodeQueue.enqueue(curr.left);
-
             if (curr.right === null){
                 curr.right = newNode;
                 return;
             }
+            nodeQueue.enqueue(curr.left);
             nodeQueue.enqueue(curr.right);
             nodeQueue.dequeue();
         }
-
     }
 
-    //delete
-    //in,pre,post traverse
+    inorder(){        
+        function inorderSearch(node){
+            if (node === null)
+                return;
+            inorderSearch(node.left);
+            console.log(node.data);
+            inorderSearch(node.right);
+        }
 
+        inorderSearch(this.root);
+    }
 }
 
 const tree = new BasicBinaryTree();
@@ -55,4 +62,4 @@ tree.insert(2);
 tree.insert(3);
 tree.insert(4);
 tree.insert(5);
-console.log(tree);
+tree.inorder();
