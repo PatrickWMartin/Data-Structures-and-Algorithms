@@ -25,8 +25,6 @@ class BasicBinaryTree{
         nodeQueue.enqueue(this.root);
         while (nodeQueue.length > 0) {
             const curr = nodeQueue.peek();
-            console.log(curr.data);
-            console.log(nodeQueue);
             if (curr.left === null){
                 curr.left = newNode;
                 return;
@@ -53,6 +51,17 @@ class BasicBinaryTree{
 
         inorderSearch(this.root);
     }
+    preorder(){
+        function preorderSearch(node){
+            if (node === null)
+                return;
+            console.log(node.data);
+            preorderSearch(node.left);
+            preorderSearch(node.right);
+        }
+        preorderSearch(this.root);
+    }
+    
 }
 
 const tree = new BasicBinaryTree();
@@ -62,4 +71,5 @@ tree.insert(2);
 tree.insert(3);
 tree.insert(4);
 tree.insert(5);
-tree.inorder();
+// tree.inorder();
+tree.preorder();
