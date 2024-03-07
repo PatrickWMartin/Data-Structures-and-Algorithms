@@ -16,3 +16,17 @@ export class Queue{
     }
 
 }
+
+const queue = new Queue();
+console.log('New Queue');
+queue.printList();
+console.log('Add some values');
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(4);
+queue.enqueue(5);
+queue.printList();
+console.log('remove some values');
+queue.dequeue();
+queue.dequeue();
+queue.printList();
