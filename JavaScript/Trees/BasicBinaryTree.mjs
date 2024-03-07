@@ -61,6 +61,17 @@ class BasicBinaryTree{
         }
         preorderSearch(this.root);
     }
+    postorder(){
+        function postorderSearch(node){
+            if (node === null)
+                return;
+            postorderSearch(node.left);
+            postorderSearch(node.right);
+            console.log(node.data);
+        }
+
+        postorderSearch(this.root);
+    }
     
 }
 
@@ -72,4 +83,4 @@ tree.insert(3);
 tree.insert(4);
 tree.insert(5);
 // tree.inorder();
-tree.preorder();
+tree.postorder();
